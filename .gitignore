@@ -1,0 +1,6 @@
+*.pyc
+*.wotmod
+*.mtmod
+
+wot-src/
+as3/bin

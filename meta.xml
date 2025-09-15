@@ -1,0 +1,6 @@
+<mod>
+  <name>My First Mod</name>
+  <description>My First Mod Description</description>
+  <version>{{VERSION}}</version>
+  <author>Your Name</author>
+</mod>
