@@ -33,7 +33,7 @@ perl -i -pe "s/{{VERSION}}/$v/g" "$configPath"
 python2 -m compileall ./build
 
 # Компиляция AS3
-if [ -d "./as3/build.sh" ]; then
+if [ -e "./as3/build.sh" ]; then
     cd ./as3
     rm ./bin/*.swf
     ./build.sh
@@ -55,7 +55,7 @@ folder=$MOD_NAME"_$v.mtmod"
 
 rm -rf $folder
 
-# Функция zip_maybe: архивирует файлы, игнорируя ошибки отсутствия файлов
+
 zip_maybe() {
   local archive="$1"; shift
   zip -qr -0 -X "$archive" "$@" 2>/dev/null || {
