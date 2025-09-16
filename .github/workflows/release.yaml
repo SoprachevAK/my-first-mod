@@ -22,21 +22,19 @@ jobs:
       - name: Install Apache Royale via npm
         run: npm install -g @apache-royale/royale-js
 
+      - name: build
+        run: ./build.sh -v ${GITHUB_REF_NAME#v}
+        shell: bash
+
       - name: Compute artifact names
         shell: bash
         run: |
-          VERSION=${GITHUB_REF_NAME#v}
           MTMOD=$(ls *.mtmod | head -n 1)
           if [ -z "$MTMOD" ]; then
             echo "No .mtmod file found!" >&2
             exit 1
           fi
           echo "MTMOD=$MTMOD" >> $GITHUB_ENV
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-
-      - name: build
-        run: ./build.sh -v $VERSION
-        shell: bash
 
       - name: Archive .mtmod artifact
         uses: actions/upload-artifact@v4
