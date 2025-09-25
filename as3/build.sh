@@ -1,1 +1,2 @@
 mxmlc -load-config+=build-config.xml --output=bin/my.first_mod.HelloWorldWindow.swf src/my/first_mod/HelloWorldWindow.as
+mxmlc -load-config+=build-config.xml --output=bin/my.first_mod.MainView.swf src/my/first_mod/MainView.as

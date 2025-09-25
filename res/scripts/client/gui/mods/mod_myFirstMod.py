@@ -1,7 +1,10 @@
 ﻿from gui import SystemMessages
 from helpers import dependency
 from skeletons.gui.shared.utils import IHangarSpace
+
 from .my_first_mod.HelloWorldWindow import setup, show
+from .my_first_mod.contextMenuOverride import new_onOptionSelect
+from .my_first_mod.PiercingMainView import setup as setupPiercingMainView
 
 MOD_VERSION = '{{VERSION}}'
 
@@ -12,6 +15,7 @@ hangarSpace = dependency.instance(IHangarSpace) # type: IHangarSpace
 def init():
   print("[MY_FIRST_MOD] Hello, World! Mod version is %s" % MOD_VERSION)
   setup()
+  setupPiercingMainView()
 
   # Подписываемся на загрузку ангара
   hangarSpace.onSpaceCreate += onHangarSpaceCreate
